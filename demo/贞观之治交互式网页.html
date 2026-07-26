@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>秋老师历史小课堂 - 贞观之治</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SimHei', 'Microsoft YaHei', sans-serif;
+            background-color: #f0e6d6;
+            color: #333;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMjAnIGhlaWdodD0nMjIwJz48ZmlsdGVyIGlkPSduJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC45JyBudW1PY3RhdmVzPScyJyBzdGl0Y2hUaWxlcz0nc3RpdGNoJy8+PGZlQ29sb3JNYXRyaXggdHlwZT0nc2F0dXJhdGUnIHZhbHVlcz0nMCcvPjxmZUNvbXBvbmVudFRyYW5zZmVyPjxmZUZ1bmNBIHR5cGU9J2xpbmVhcicgc2xvcGU9JzAuMDUnLz48L2ZlQ29tcG9uZW50VHJhbnNmZXI+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9JzIyMCcgaGVpZ2h0PScyMjAnIGZpbGw9JyNlOWQ4YjAnLz48cmVjdCB3aWR0aD0nMjIwJyBoZWlnaHQ9JzIyMCcgZmlsdGVyPSd1cmwoI24pJy8+PC9zdmc+");
+            background-repeat: repeat;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #8b4513;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            border-bottom: 3px solid #8b4513;
+            padding-bottom: 10px;
+        }
+
+        .section {
+            background-color: #fff8e7;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid #d4a066;
+        }
+
+        .section h2 {
+            color: #8b4513;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #d4a066;
+            padding-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .section h3 {
+            color: #8b4513;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #4d3319;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .image-container img {
+            max-width: 70%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 3px solid #d4a066;
+        }
+
+        .image-container p {
+            margin-top: 10px;
+            font-style: italic;
+            color: #7f5539;
+        }
+
+        .interactive-question {
+            background-color: #f5deb3;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid #d4a066;
+        }
+
+        .interactive-question h4 {
+            margin-bottom: 15px;
+            color: #8b4513;
+        }
+
+        .question-text {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: #4d3319;
+        }
+
+        .options {
+            margin-bottom: 20px;
+        }
+
+        .option {
+            margin-bottom: 12px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            background-color: #fff8e7;
+            border: 1px solid #d4a066;
+        }
+
+        .option:hover {
+            background-color: #f0e6d6;
+        }
+
+        .option input {
+            margin-right: 10px;
+        }
+
+        .hint-button, .answer-button {
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .hint-button:hover, .answer-button:hover {
+            background-color: #654321;
+        }
+
+        .hint, .answer {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .hint {
+            background-color: #fff8e7;
+            border: 1px solid #d4a066;
+            color: #8b4513;
+        }
+
+        .answer {
+            background-color: #fff8e7;
+            border: 1px solid #d4a066;
+            color: #8b4513;
+        }
+
+        .progress-container {
+            margin: 25px 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #d4a066;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #8b4513;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        #progress-text {
+            text-align: center;
+            margin-top: 10px;
+            color: #8b4513;
+            font-weight: bold;
+        }
+
+        .achievement {
+            background-color: #fff8e7;
+            border-left: 5px solid #8b4513;
+            padding: 15px;
+            margin: 20px 0;
+            display: none;
+            border: 2px solid #d4a066;
+        }
+
+        .achievement h3 {
+            color: #8b4513;
+            margin-bottom: 10px;
+        }
+
+        .lucky-wheel {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .wheel-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 20px;
+        }
+
+        .wheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                #ff6b6b 0deg 36deg,
+                #4ecdc4 36deg 72deg,
+                #45b7d1 72deg 108deg,
+                #96ceb4 108deg 144deg,
+                #ffeaa7 144deg 180deg,
+                #dfe6e9 180deg 216deg,
+                #b2bec3 216deg 252deg,
+                #636e72 252deg 288deg,
+                #2d3436 288deg 324deg,
+                #0984e3 324deg 360deg
+            );
+            transition: transform 5s ease-out;
+            border: 5px solid #8b4513;
+        }
+
+        .wheel-pointer {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 30px solid #8b4513;
+        }
+
+        .wheel-btn {
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .wheel-btn:hover {
+            background-color: #654321;
+        }
+
+        .student-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #8b4513;
+            margin: 20px 0;
+        }
+
+        .sound-toggle {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .sound-toggle button {
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .sound-toggle button:hover {
+            background-color: #654321;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #8b4513;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: #fff8e7;
+            border: 4px solid #8b4513;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-left {
+            left: 0;
+        }
+
+        .timeline-right {
+            left: 50%;
+        }
+
+        .timeline-left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid #fff8e7;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #fff8e7;
+        }
+
+        .timeline-right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid #fff8e7;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #fff8e7 transparent transparent;
+        }
+
+        .timeline-right::after {
+            left: -16px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: #fff8e7;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid #d4a066;
+        }
+
+        .timeline-content h4 {
+            margin-top: 0;
+            color: #8b4513;
+        }
+
+        .fun-fact {
+            background-color: #fff8e7;
+            border-left: 5px solid #8b4513;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border: 2px solid #d4a066;
+        }
+
+        .fun-fact h4 {
+            margin-top: 0;
+            color: #8b4513;
+        }
+
+        .extra-resources {
+            background-color: #fff8e7;
+            border-left: 5px solid #8b4513;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border: 2px solid #d4a066;
+        }
+
+        .extra-resources h4 {
+            margin-top: 0;
+            color: #8b4513;
+        }
+
+        .extra-resources ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .extra-resources li {
+            margin-bottom: 8px;
+            color: #4d3319;
+        }
+
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .wheel-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid #fff8e7;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent #fff8e7 transparent transparent;
+            }
+
+            .timeline-left::after, .timeline-right::after {
+                left: 15px;
+            }
+
+            .timeline-right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>秋老师历史小课堂</h1>
+        <div class="subtitle" style="text-align: center; color: #8b4513; margin-bottom: 30px; font-size: 1.3em; font-style: italic;">唐太宗李世民的治国之道</div>
+        
+        <div class="sound-toggle">
+            <button id="sound-btn">音效开关</button>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <p id="progress-text">进度：0%</p>
+        </div>
+
+        <div class="achievement" id="achievement">
+            <h3>🎉 恭喜！解锁新成就</h3>
+            <p>你已经完成了第一个知识点的学习，继续加油！</p>
+        </div>
+
+
+        <!-- 引入区 -->
+        <div class="section">
+            <h2>一、引入：从玄武门的血色到贞观的盛世</h2>
+            <div class="story-content">
+                <p>同学们，电视剧里我们常看到这样的桥段：一位英明神武的皇帝，在贤臣辅佐下开创太平盛世。但历史的真相往往更复杂。</p>
+                <p>今天要讲的“贞观之治”，它的起点不是歌舞升平，而是一场兄弟相残的血腥政变——玄武门之变。</p>
+                <p>一个踩着亲人鲜血登基的皇子，为何能被后世誉为“千古明君”？盛世的底色，究竟是运气，还是选择？让我们走进公元七世纪的唐王朝。</p>
+
+            </div>
+            
+            <div class="image-container">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDYwMCIgd2lkdGg9IjEwMDAiIGhlaWdodD0iNjAwIj4KCiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InBhcGVyIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmM2U3Y2IiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1NSUiIHN0b3AtY29sb3I9IiNlY2RjYjYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZTJjZmEzIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJ2aWduIiBjeD0iNTAlIiBjeT0iNDIlIiByPSI3NSUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjYwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzViM2ExYSIgc3RvcC1vcGFjaXR5PSIwLjIyIi8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogICAgPGZpbHRlciBpZD0icm91Z2giPjxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIwLjkiIG51bU9jdGF2ZXM9IjIiIHJlc3VsdD0ibiIvPgogICAgICA8ZmVDb2xvck1hdHJpeCBpbj0ibiIgdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPgogICAgICA8ZmVDb21wb25lbnRUcmFuc2Zlcj48ZmVGdW5jQSB0eXBlPSJsaW5lYXIiIHNsb3BlPSIwLjA1Ii8+PC9mZUNvbXBvbmVudFRyYW5zZmVyPgogICAgICA8ZmVDb21wb3NpdGUgb3BlcmF0b3I9Im92ZXIiIGluMj0iU291cmNlR3JhcGhpYyIvPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgoKICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwMCIgaGVpZ2h0PSI2MDAiIGZpbGw9InVybCgjcGFwZXIpIi8+CiAgPHJlY3QgeD0iMTQiIHk9IjE0IiB3aWR0aD0iOTcyIiBoZWlnaHQ9IjU3MiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOGI1YTJiIiBzdHJva2Utd2lkdGg9IjMiIG9wYWNpdHk9IjAuNyIvPgogIDxyZWN0IHg9IjIyIiB5PSIyMiIgd2lkdGg9Ijk1NiIgaGVpZ2h0PSI1NTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzhiNWEyYiIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjUiLz4KICAKICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMjAsMTUwKSBzY2FsZSgwLjkpIiBmaWxsPSIjY2RiMDg4IiBvcGFjaXR5PSIwLjU1Ij48cGF0aCBkPSJNMCAwIHExMCAtMjIgMzQgLTE2IHExNCAtMjAgNDAgLTggcTI2IC02IDMwIDE2IHExOCA0IDEwIDIyIGwtMTE4IDAgcS0xMiAtMTYgNCAtMjIgeiIvPjwvZz4gPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzYwLDEyMCkgc2NhbGUoMS4xKSIgZmlsbD0iI2NkYjA4OCIgb3BhY2l0eT0iMC41NSI+PHBhdGggZD0iTTAgMCBxMTAgLTIyIDM0IC0xNiBxMTQgLTIwIDQwIC04IHEyNiAtNiAzMCAxNiBxMTggNCAxMCAyMiBsLTExOCAwIHEtMTIgLTE2IDQgLTIyIHoiLz48L2c+CiAgPHJlY3QgeD0iMTIwIiB5PSIxMjAiIHdpZHRoPSIzNCIgaGVpZ2h0PSIzODAiIGZpbGw9IiM2YjQ0MjMiIG9wYWNpdHk9IjAuNTUiLz4KICA8cmVjdCB4PSI4NDYiIHk9IjEyMCIgd2lkdGg9IjM0IiBoZWlnaHQ9IjM4MCIgZmlsbD0iIzZiNDQyMyIgb3BhY2l0eT0iMC41NSIvPgogIDxyZWN0IHg9IjExMCIgeT0iMTAwIiB3aWR0aD0iNTQiIGhlaWdodD0iMjYiIGZpbGw9IiM3YTRhMWMiLz4KICA8cmVjdCB4PSI4MzYiIHk9IjEwMCIgd2lkdGg9IjU0IiBoZWlnaHQ9IjI2IiBmaWxsPSIjN2E0YTFjIi8+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTAwLDMwMCkiPgogICAgPGVsbGlwc2UgY3g9IjAiIGN5PSIxNCIgcng9IjkyIiByeT0iMTIwIiBmaWxsPSIjM2MyYTE0Ii8+CiAgICA8cGF0aCBkPSJNLTkyIDE0IFEtOTIgLTEyMCAwIC0xMjAgUTkyIC0xMjAgOTIgMTQgUTQwIDQwIDAgNDAgUS00MCA0MCAtOTIgMTQgWiIgZmlsbD0iIzRhMzQxNSIvPgogICAgPHJlY3QgeD0iLTc4IiB5PSItMTUwIiB3aWR0aD0iMTU2IiBoZWlnaHQ9IjQwIiByeD0iNiIgZmlsbD0iIzdhNGExYyIvPgogICAgPHJlY3QgeD0iLTc4IiB5PSItMTUwIiB3aWR0aD0iMTU2IiBoZWlnaHQ9IjQwIiByeD0iNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjY2FhODRhIiBzdHJva2Utd2lkdGg9IjMiLz4KICAgIDxnIHN0cm9rZT0iI2NhYTg0YSIgc3Ryb2tlLXdpZHRoPSIyLjUiPgogICAgICA8bGluZSB4MT0iLTU4IiB5MT0iLTExMCIgeDI9Ii01OCIgeTI9Ii03OCIvPgogICAgICA8bGluZSB4MT0iLTI5IiB5MT0iLTExMCIgeDI9Ii0yOSIgeTI9Ii03OCIvPgogICAgICA8bGluZSB4MT0iMCIgeTE9Ii0xMTAiIHgyPSIwIiB5Mj0iLTc4Ii8+CiAgICAgIDxsaW5lIHgxPSIyOSIgeTE9Ii0xMTAiIHgyPSIyOSIgeTI9Ii03OCIvPgogICAgICA8bGluZSB4MT0iNTgiIHkxPSItMTEwIiB4Mj0iNTgiIHkyPSItNzgiLz4KICAgIDwvZz4KICAgIDxjaXJjbGUgY3g9IjAiIGN5PSItMzAiIHI9IjQ2IiBmaWxsPSIjZTljZmE2Ii8+CiAgICA8cGF0aCBkPSJNLTQ2IC0zMCBRLTQ2IC03OCAwIC03OCBRNDYgLTc4IDQ2IC0zMCBRNDYgMTggMCAxOCBRLTQ2IDE4IC00NiAtMzAgWiIgZmlsbD0iI2U5Y2ZhNiIvPgogICAgPHBhdGggZD0iTS00NiAtNDAgUTAgLTY0IDQ2IC00MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM2MyYTE0IiBzdHJva2Utd2lkdGg9IjIuNSIvPgogICAgPGNpcmNsZSBjeD0iLTE4IiBjeT0iLTMyIiByPSI1IiBmaWxsPSIjM2MyYTE0Ii8+CiAgICA8Y2lyY2xlIGN4PSIxOCIgY3k9Ii0zMiIgcj0iNSIgZmlsbD0iIzNjMmExNCIvPgogICAgPHBhdGggZD0iTS0xNiAwIFEwIDE0IDE2IDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzdhM2IyYSIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgICA8cGF0aCBkPSJNLTMwIDE4IFEwIDMwIDMwIDE4IiBmaWxsPSJub25lIiBzdHJva2U9IiM3YTNiMmEiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgPC9nPgogIDxyZWN0IHg9IjM2MCIgeT0iNDcwIiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjQwIiByeD0iNiIgZmlsbD0iIzllMmIyNSIgb3BhY2l0eT0iMC44NSIvPgogIDx0ZXh0IHg9IjUwMCIgeT0iNDk4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU1RLYWl0aSxLYWlUaSxTaW1TdW4sc2VyaWYiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiNmM2U3Y2IiIGxldHRlci1zcGFjaW5nPSI2Ij7llJDlpKrlrpfmnY7kuJbmsJE8L3RleHQ+CgogIDx0ZXh0IHg9IjUwMCIgeT0iNTU2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU1RLYWl0aSxLYWlUaSxTaW1TdW4sc2VyaWYiIGZvbnQtc2l6ZT0iMjIiIGZpbGw9IiM3YTRhMWMiIG9wYWNpdHk9IjAuODUiPuS7juihgOiJsuaUv+WPmOWIsOebm+S4luaYjuWQmzwvdGV4dD4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5MDgsODQpIj4KICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2MiIgaGVpZ2h0PSI2MiIgcng9IjYiIGZpbGw9IiM5ZTJiMjUiIG9wYWNpdHk9IjAuOSIvPgogICAgPHRleHQgeD0iMzEiIHk9IjI3IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU1RLYWl0aSxLYWlUaSxTaW1TdW4sc2VyaWYiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmM2U3Y2IiPui0njwvdGV4dD4KICAgIDx0ZXh0IHg9IjMxIiB5PSI1NCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IlNUS2FpdGksS2FpVGksU2ltU3VuLHNlcmlmIiBmb250LXNpemU9IjI2IiBmaWxsPSIjZjNlN2NiIj7op4I8L3RleHQ+CiAgPC9nPgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0idXJsKCN2aWduKSIgcG9pbnRlci1ldmVudHM9Im5vbmUiLz4KICA8dGV4dCB4PSI1MDAiIHk9Ijc0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU1RLYWl0aSxLYWlUaSxTaW1TdW4sc2VyaWYiIGZvbnQtc2l6ZT0iMzQiIGZpbGw9IiM1YjNhMWEiIGxldHRlci1zcGFjaW5nPSI0Ij7njoTmrabpl6jkuYvlj5ggwrcg6LSe6KeC5LmL5rK755qE6LW354K5PC90ZXh0Pgo8L3N2Zz4=" alt="唐太宗李世民（冕旒帝王像，意象图）">
+                <p>唐太宗李世民（冕旒帝王像，意象图）</p>
+            </div>
+        </div>
+
+
+        <!-- 时间线梳理 -->
+        <div class="section">
+            <h2>二、时间线梳理：贞观之治的发展脉络</h2>
+            <div class="timeline">
+
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <h4>618年</h4>
+                        <p>李渊建立唐朝，定都长安；李世民受封秦王，南征北战统一全国。</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <h4>626年</h4>
+                        <p>玄武门之变，李世民杀太子李建成、齐王李元吉，旋即继统。</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <h4>627年</h4>
+                        <p>改元“贞观”，太宗正式即位，贞观之治开启。</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <h4>630年</h4>
+                        <p>李靖灭东突厥，太宗被北方各族尊为“天可汗”。</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <h4>637年</h4>
+                        <p>颁布《贞观律》，奠定唐律基础。</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <h4>641年</h4>
+                        <p>文成公主入藏，嫁吐蕃赞普松赞干布，促进汉藏交流。</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <h4>649年</h4>
+                        <p>太宗去世，享年52岁，庙号太宗。</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- 展开区 -->
+        <div class="section">
+            <h2>三、展开：贞观之治的核心知识点</h2>
+
+            <div class="knowledge-point">
+                <h3>知识点1：以民为本的治国理念</h3>
+                <div class="story-content">
+                    <p>太宗治国最深的底色，是一个字——“惧”。他怕重蹈隋朝速亡的覆辙。</p>
+                    <p>他反复引用“水能载舟，亦能覆舟”（语出《荀子》，魏征等常引以自警），把百姓比作水、君主比作舟。</p>
+                    <p>基于这一理念，他推行均田制与租庸调制，轻徭薄赋，允许农民纳绢代役（庸）以保障农时；又戒奢从简，不轻易大兴土木。贞观年间的安定，正源于对民力的珍惜。</p>
+                </div>
+
+                <div class="image-container">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDYwMCIgd2lkdGg9IjEwMDAiIGhlaWdodD0iNjAwIj4KCiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InBhcGVyIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmM2U3Y2IiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1NSUiIHN0b3AtY29sb3I9IiNlY2RjYjYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZTJjZmEzIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJ2aWduIiBjeD0iNTAlIiBjeT0iNDIlIiByPSI3NSUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjYwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzViM2ExYSIgc3RvcC1vcGFjaXR5PSIwLjIyIi8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogICAgPGZpbHRlciBpZD0icm91Z2giPjxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIwLjkiIG51bU9jdGF2ZXM9IjIiIHJlc3VsdD0ibiIvPgogICAgICA8ZmVDb2xvck1hdHJpeCBpbj0ibiIgdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPgogICAgICA8ZmVDb21wb25lbnRUcmFuc2Zlcj48ZmVGdW5jQSB0eXBlPSJsaW5lYXIiIHNsb3BlPSIwLjA1Ii8+PC9mZUNvbXBvbmVudFRyYW5zZmVyPgogICAgICA8ZmVDb21wb3NpdGUgb3BlcmF0b3I9Im92ZXIiIGluMj0iU291cmNlR3JhcGhpYyIvPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgoKICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwMCIgaGVpZ2h0PSI2MDAiIGZpbGw9InVybCgjcGFwZXIpIi8+CiAgPHJlY3QgeD0iMTQiIHk9IjE0IiB3aWR0aD0iOTcyIiBoZWlnaHQ9IjU3MiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOGI1YTJiIiBzdHJva2Utd2lkdGg9IjMiIG9wYWNpdHk9IjAuNyIvPgogIDxyZWN0IHg9IjIyIiB5PSIyMiIgd2lkdGg9Ijk1NiIgaGVpZ2h0PSI1NTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzhiNWEyYiIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjUiLz4KICAKICA8Y2lyY2xlIGN4PSIxODAiIGN5PSIxNTAiIHI9IjU2IiBmaWxsPSIjYzk3NDJiIiBvcGFjaXR5PSIwLjc1Ii8+CiAgPHBhdGggZD0iTTAgNDMwIFEyNTAgMzYwIDUwMCA0MzAgVDEwMDAgNDMwIEwxMDAwIDYwMCBMMCA2MDAgWiIgZmlsbD0iIzhhNmEzYSIgb3BhY2l0eT0iMC41Ii8+CiAgPHBhdGggZD0iTTAgNDcwIFEzMDAgNDEwIDYwMCA0NzAgVDEwMDAgNDcwIEwxMDAwIDYwMCBMMCA2MDAgWiIgZmlsbD0iIzZiNGYyOCIgb3BhY2l0eT0iMC41Ii8+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzIwLDEyMCkgc2NhbGUoMS4wKSIgZmlsbD0iI2NkYjA4OCIgb3BhY2l0eT0iMC41NSI+PHBhdGggZD0iTTAgMCBxMTAgLTIyIDM0IC0xNiBxMTQgLTIwIDQwIC04IHEyNiAtNiAzMCAxNiBxMTggNCAxMCAyMiBsLTExOCAwIHEtMTIgLTE2IDQgLTIyIHoiLz48L2c+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTAwLDQzMCkiPgogICAgPGVsbGlwc2UgY3g9IjAiIGN5PSI2IiByeD0iNDAiIHJ5PSIxNCIgZmlsbD0iIzNjMmExNCIgb3BhY2l0eT0iMC4yNSIvPgogICAgPHBhdGggZD0iTS0yNiAwIFEtMzAgLTcwIDAgLTg2IFEzMCAtNzAgMjYgMCBaIiBmaWxsPSIjNGEzNDE1Ii8+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTk2IiByPSIyMCIgZmlsbD0iI2U5Y2ZhNiIvPgogICAgPHBhdGggZD0iTS0yMCAtMTAwIFEwIC0xMjAgMjAgLTEwMCBRMTQgLTg2IDAgLTg2IFEtMTQgLTg2IC0yMCAtMTAwIFoiIGZpbGw9IiMzYzJhMTQiLz4KICAgIDxwYXRoIGQ9Ik0tMjIgLTUyIEwtNTggLTIwIE0yMiAtNTIgTDU4IC0yMCIgc3Ryb2tlPSIjNGEzNDE1IiBzdHJva2Utd2lkdGg9IjkiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPHBhdGggZD0iTS00MCA2IFEtNzAgMzAgLTg2IDYwIiBzdHJva2U9IiM2YjQ0MjMiIHN0cm9rZS13aWR0aD0iNiIgZmlsbD0ibm9uZSIvPgogICAgPHBhdGggZD0iTTQwIDYgUTcwIDMwIDg2IDYwIiBzdHJva2U9IiM2YjQ0MjMiIHN0cm9rZS13aWR0aD0iNiIgZmlsbD0ibm9uZSIvPgogIDwvZz4KICA8ZyBzdHJva2U9IiMzYzVhMWUiIHN0cm9rZS13aWR0aD0iNCI+CiAgICA8cGF0aCBkPSJNMTIwIDUyMCBRMTE2IDQ3MCAxMjQgNDQwIE0xNDAgNTI0IFExNDAgNDcyIDE0MCA0NDIgTTE2MCA1MjAgUTE2NCA0NzAgMTU2IDQ0MCIvPgogICAgPHBhdGggZD0iTTgyMCA1MjAgUTgxNiA0NzAgODI0IDQ0MCBNODQwIDUyNCBRODQwIDQ3MiA4NDAgNDQyIE04NjAgNTIwIFE4NjQgNDcwIDg1NiA0NDAiLz4KICA8L2c+CiAgPGcgZmlsbD0iIzVhN2EyYSIgb3BhY2l0eT0iMC44Ij4KICAgIDxjaXJjbGUgY3g9IjEyNCIgY3k9IjQzNiIgcj0iOSIvPjxjaXJjbGUgY3g9IjE0MCIgY3k9IjQzOCIgcj0iOSIvPjxjaXJjbGUgY3g9IjE1NiIgY3k9IjQzNiIgcj0iOSIvPgogICAgPGNpcmNsZSBjeD0iODI0IiBjeT0iNDM2IiByPSI5Ii8+PGNpcmNsZSBjeD0iODQwIiBjeT0iNDM4IiByPSI5Ii8+PGNpcmNsZSBjeD0iODU2IiBjeT0iNDM2IiByPSI5Ii8+CiAgPC9nPgogIDxyZWN0IHg9IjM2MCIgeT0iNTQwIiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjM0IiByeD0iNiIgZmlsbD0iIzllMmIyNSIgb3BhY2l0eT0iMC44Ii8+CiAgPHRleHQgeD0iNTAwIiB5PSI1NjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTVEthaXRpLEthaVRpLFNpbVN1bixzZXJpZiIgZm9udC1zaXplPSIyMCIgZmlsbD0iI2YzZTdjYiIgbGV0dGVyLXNwYWNpbmc9IjMiPuawtOiDvei9veiInyDCtyDkuqbog73opoboiJ88L3RleHQ+CgogIDx0ZXh0IHg9IjUwMCIgeT0iNTU2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU1RLYWl0aSxLYWlUaSxTaW1TdW4sc2VyaWYiIGZvbnQtc2l6ZT0iMjIiIGZpbGw9IiM3YTRhMWMiIG9wYWNpdHk9IjAuODUiPuWdh+eUsOenn+W6uCDCtyDkuI7msJHkvJHmga88L3RleHQ+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTA4LDg0KSI+CiAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNjIiIGhlaWdodD0iNjIiIHJ4PSI2IiBmaWxsPSIjOWUyYjI1IiBvcGFjaXR5PSIwLjkiLz4KICAgIDx0ZXh0IHg9IjMxIiB5PSIyNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IlNUS2FpdGksS2FpVGksU2ltU3VuLHNlcmlmIiBmb250LXNpemU9IjI2IiBmaWxsPSIjZjNlN2NiIj7otJ48L3RleHQ+CiAgICA8dGV4dCB4PSIzMSIgeT0iNTQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTVEthaXRpLEthaVRpLFNpbVN1bixzZXJpZiIgZm9udC1zaXplPSIyNiIgZmlsbD0iI2YzZTdjYiI+6KeCPC90ZXh0PgogIDwvZz4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwMCIgaGVpZ2h0PSI2MDAiIGZpbGw9InVybCgjdmlnbikiIHBvaW50ZXItZXZlbnRzPSJub25lIi8+CiAgPHRleHQgeD0iNTAwIiB5PSI3NCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IlNUS2FpdGksS2FpVGksU2ltU3VuLHNlcmlmIiBmb250LXNpemU9IjM0IiBmaWxsPSIjNWIzYTFhIiBsZXR0ZXItc3BhY2luZz0iNCI+5Lul5rCR5Li65pysIMK3IOi9u+W+reiWhOi1izwvdGV4dD4KPC9zdmc+" alt="田间耕作与丰收——以民为本的治世根基">
+                    <p>田间耕作与丰收——以民为本的治世根基</p>
+                </div>
+
+                <div class="interactive-question">
+                    <h4>互动思考题</h4>
+                    <div class="question-text">
+                        李世民为什么反复强调要重视百姓的疾苦？这反映了他怎样的治国理念？
+                    </div>
+                    <button class="hint-button" onclick="showHint('hint1-1')">提示1</button>
+                    <button class="hint-button" onclick="showHint('hint1-2')">提示2</button>
+                    <button class="answer-button" onclick="showAnswer('answer1')">显示答案/解析</button>
+                    <div class="hint" id="hint1-1">
+                        <p>提示1：李世民亲眼目睹了哪个王朝的速亡？他认为其灭亡的主要原因是什么？</p>
+                    </div>
+                    <div class="hint" id="hint1-2">
+                        <p>提示2：他把百姓和君主的关系比作什么？</p>
+                    </div>
+                    <div class="answer" id="answer1">
+                        <p>答案/解析：李世民重视百姓疾苦，是因为亲见隋炀帝滥用民力、二世而亡，深刻认识到“水能载舟，亦能覆舟”。这反映了他“以民为本”的治国理念：统治者须珍惜民力、轻徭薄赋、与民休息，方能使社稷长久。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="knowledge-point">
+                <h3>知识点2：制度上的创新与完善</h3>
+                <div class="story-content">
+                    <p>好理念要靠好制度落地。贞观年间最耀眼的，是对中央官制与选官制度的完善。</p>
+                    <p>三省六部制：中书省决策、门下省审议、尚书省执行，尚书省下辖吏、户、礼、兵、刑、工六部，分权制衡、减少失误。</p>
+                    <p>科举制：虽非唐首创（隋炀帝设进士科），但太宗加以完善扩充，使寒门子弟得以凭才学入仕，扩大了统治基础。房玄龄善谋、杜如晦能断，“房谋杜断”是决策中枢的黄金搭档。</p>
+                </div>
+
+                <div class="image-container">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDYwMCIgd2lkdGg9IjEwMDAiIGhlaWdodD0iNjAwIj4KCiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InBhcGVyIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmM2U3Y2IiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1NSUiIHN0b3AtY29sb3I9IiNlY2RjYjYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZTJjZmEzIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJ2aWduIiBjeD0iNTAlIiBjeT0iNDIlIiByPSI3NSUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjYwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzViM2ExYSIgc3RvcC1vcGFjaXR5PSIwLjIyIi8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogICAgPGZpbHRlciBpZD0icm91Z2giPjxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIwLjkiIG51bU9jdGF2ZXM9IjIiIHJlc3VsdD0ibiIvPgogICAgICA8ZmVDb2xvck1hdHJpeCBpbj0ibiIgdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPgogICAgICA8ZmVDb21wb25lbnRUcmFuc2Zlcj48ZmVGdW5jQSB0eXBlPSJsaW5lYXIiIHNsb3BlPSIwLjA1Ii8+PC9mZUNvbXBvbmVudFRyYW5zZmVyPgogICAgICA8ZmVDb21wb3NpdGUgb3BlcmF0b3I9Im92ZXIiIGluMj0iU291cmNlR3JhcGhpYyIvPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgoKICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwMCIgaGVpZ2h0PSI2MDAiIGZpbGw9InVybCgjcGFwZXIpIi8+CiAgPHJlY3QgeD0iMTQiIHk9IjE0IiB3aWR0aD0iOTcyIiBoZWlnaHQ9IjU3MiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOGI1YTJiIiBzdHJva2Utd2lkdGg9IjMiIG9wYWNpdHk9IjAuNyIvPgogIDxyZWN0IHg9IjIyIiB5PSIyMiIgd2lkdGg9Ijk1NiIgaGVpZ2h0PSI1NTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzhiNWEyYiIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjUiLz4KICAKICA8cmVjdCB4PSIyNTAiIHk9IjE1MCIgd2lkdGg9IjUwMCIgaGVpZ2h0PSI2MCIgcng9IjgiIGZpbGw9IiM3YTRhMWMiLz4KICA8cmVjdCB4PSIyNTAiIHk9IjE1MCIgd2lkdGg9IjUwMCIgaGVpZ2h0PSI2MCIgcng9IjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2NhYTg0YSIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPHRleHQgeD0iNTAwIiB5PSIxOTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTVEthaXRpLEthaVRpLFNpbVN1bixzZXJpZiIgZm9udC1zaXplPSIzNCIgZmlsbD0iI2YzZTdjYiIgbGV0dGVyLXNwYWNpbmc9IjEwIj7kuInnnIHlha3pg6g8L3RleHQ+CiAgPHJlY3QgeD0iMzAwIiB5PSIyMTUiIHdpZHRoPSI0MDAiIGhlaWdodD0iMTQiIGZpbGw9IiM2YjQ0MjMiLz4KICA8ZyBmaWxsPSIjNGEzNDE1Ij4KICAgIDxyZWN0IHg9IjMwMCIgeT0iMjM1IiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgb3BhY2l0eT0iMC4xOCIvPgogIDwvZz4KICA8ZyBmaWxsPSIjNGEzNDE1Ij4KICAgIDxlbGxpcHNlIGN4PSIzNDAiIGN5PSI0MzAiIHJ4PSIzNCIgcnk9IjYwIiAvPjxlbGxpcHNlIGN4PSI0MjAiIGN5PSI0MzAiIHJ4PSIzNCIgcnk9IjYwIiAvPjxlbGxpcHNlIGN4PSI1MDAiIGN5PSI0MzAiIHJ4PSIzNCIgcnk9IjYwIiAvPjxlbGxpcHNlIGN4PSI1ODAiIGN5PSI0MzAiIHJ4PSIzNCIgcnk9IjYwIiAvPjxlbGxpcHNlIGN4PSI2NjAiIGN5PSI0MzAiIHJ4PSIzNCIgcnk9IjYwIiAvPgogIDwvZz4KICA8ZyBmaWxsPSIjZTljZmE2Ij4KICAgIDxjaXJjbGUgY3g9IjM0MCIgY3k9IjQwMCIgcj0iMTgiIC8+PGNpcmNsZSBjeD0iNDIwIiBjeT0iNDAwIiByPSIxOCIgLz48Y2lyY2xlIGN4PSI1MDAiIGN5PSI0MDAiIHI9IjE4IiAvPjxjaXJjbGUgY3g9IjU4MCIgY3k9IjQwMCIgcj0iMTgiIC8+PGNpcmNsZSBjeD0iNjYwIiBjeT0iNDAwIiByPSIxOCIgLz4KICA8L2c+CiAgPGcgZmlsbD0iIzllMmIyNSIgb3BhY2l0eT0iMC45Ij4KICAgIDxyZWN0IHg9IjMzMCIgeT0iNDcwIiB3aWR0aD0iMjAiIGhlaWdodD0iNjAiIHJ4PSIzIi8+CiAgICA8cmVjdCB4PSI0OTAiIHk9IjQ3MCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjYwIiByeD0iMyIvPgogICAgPHJlY3QgeD0iNjUwIiB5PSI0NzAiIHdpZHRoPSIyMCIgaGVpZ2h0PSI2MCIgcng9IjMiLz4KICA8L2c+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTQwLDE3MCkgc2NhbGUoMC44KSIgZmlsbD0iI2NkYjA4OCIgb3BhY2l0eT0iMC41NSI+PHBhdGggZD0iTTAgMCBxMTAgLTIyIDM0IC0xNiBxMTQgLTIwIDQwIC04IHEyNiAtNiAzMCAxNiBxMTggNCAxMCAyMiBsLTExOCAwIHEtMTIgLTE2IDQgLTIyIHoiLz48L2c+IDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgwMCwxNjApIHNjYWxlKDAuOSkiIGZpbGw9IiNjZGIwODgiIG9wYWNpdHk9IjAuNTUiPjxwYXRoIGQ9Ik0wIDAgcTEwIC0yMiAzNCAtMTYgcTE0IC0yMCA0MCAtOCBxMjYgLTYgMzAgMTYgcTE4IDQgMTAgMjIgbC0xMTggMCBxLTEyIC0xNiA0IC0yMiB6Ii8+PC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUwMCwzMDApIiBvcGFjaXR5PSIwLjk1Ij4KICAgIDxyZWN0IHg9Ii0zMCIgeT0iLTMwIiB3aWR0aD0iNjAiIGhlaWdodD0iMjAiIHJ4PSIzIiBmaWxsPSIjZTljZmE2IiBzdHJva2U9IiM2YjQ0MjMiLz4KICAgIDxsaW5lIHgxPSIwIiB5MT0iLTEwIiB4Mj0iMCIgeTI9IjIwIiBzdHJva2U9IiM2YjQ0MjMiIHN0cm9rZS13aWR0aD0iMyIvPgogIDwvZz4KICA8cmVjdCB4PSIzNjAiIHk9IjU0MCIgd2lkdGg9IjI4MCIgaGVpZ2h0PSIzNCIgcng9IjYiIGZpbGw9IiM5ZTJiMjUiIG9wYWNpdHk9IjAuOCIvPgogIDx0ZXh0IHg9IjUwMCIgeT0iNTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU1RLYWl0aSxLYWlUaSxTaW1TdW4sc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiNmM2U3Y2IiIGxldHRlci1zcGFjaW5nPSIzIj7liIbmnYPliLbooaEgwrcg56eR5Li+5Y+W5aOrPC90ZXh0PgoKICA8dGV4dCB4PSI1MDAiIHk9IjU1NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IlNUS2FpdGksS2FpVGksU2ltU3VuLHNlcmlmIiBmb250LXNpemU9IjIyIiBmaWxsPSIjN2E0YTFjIiBvcGFjaXR5PSIwLjg1Ij7lhrPnrZblrqHorq7miafooYwgwrcg5a+S6Zeo5YWl5LuVPC90ZXh0PgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkwOCw4NCkiPgogICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iNiIgZmlsbD0iIzllMmIyNSIgb3BhY2l0eT0iMC45Ii8+CiAgICA8dGV4dCB4PSIzMSIgeT0iMjciIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTVEthaXRpLEthaVRpLFNpbVN1bixzZXJpZiIgZm9udC1zaXplPSIyNiIgZmlsbD0iI2YzZTdjYiI+6LSePC90ZXh0PgogICAgPHRleHQgeD0iMzEiIHk9IjU0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU1RLYWl0aSxLYWlUaSxTaW1TdW4sc2VyaWYiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmM2U3Y2IiPuingjwvdGV4dD4KICA8L2c+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMDAiIGhlaWdodD0iNjAwIiBmaWxsPSJ1cmwoI3ZpZ24pIiBwb2ludGVyLWV2ZW50cz0ibm9uZSIvPgogIDx0ZXh0IHg9IjUwMCIgeT0iNzQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTVEthaXRpLEthaVRpLFNpbVN1bixzZXJpZiIgZm9udC1zaXplPSIzNCIgZmlsbD0iIzViM2ExYSIgbGV0dGVyLXNwYWNpbmc9IjQiPuWItuW6puWIm+aWsCDCtyDkuInnnIHlha3pg6jkuI7np5HkuL48L3RleHQ+Cjwvc3ZnPg==" alt="三省六部官衙与朝堂议事（意象图）">
+                    <p>三省六部官衙与朝堂议事（意象图）</p>
+                </div>
+
+                <div class="interactive-question">
+                    <h4>互动选择题</h4>
+                    <div class="question-text">
+                        以下哪项关于“三省六部制”的说法是正确的？
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q2" value="A">
+                            <label>A. 由唐太宗首创</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q2" value="B">
+                            <label>B. 中书省负责执行，尚书省负责决策</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q2" value="C">
+                            <label>C. 门下省负责审议，尚书省下设六部执行</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q2" value="D">
+                            <label>D. 丞相权力因此不受任何制约</label>
+                        </div>
+                    </div>
+                    <button class="hint-button" onclick="showHint('hint2-1')">提示1</button>
+                    <button class="hint-button" onclick="showHint('hint2-2')">提示2</button>
+                    <button class="answer-button" onclick="showAnswer('answer2')">显示答案/解析</button>
+                    <div class="hint" id="hint2-1">
+                        <p>提示1：三省六部制的雏形在隋代已确立，太宗的贡献是“完善”。</p>
+                    </div>
+                    <div class="hint" id="hint2-2">
+                        <p>提示2：决策、审议、执行分别由哪三个省承担？</p>
+                    </div>
+                    <div class="answer" id="answer2">
+                        <p>答案/解析：正确答案是 C。门下省负责审议、尚书省下设六部执行；三省六部制确立于隋，太宗加以完善；分权设计正是为了减少失误、形成制衡，而非让丞相不受制约。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="knowledge-point">
+                <h3>知识点3：开明的民族政策</h3>
+                <div class="story-content">
+                    <p>对内治民，对外如何待“四夷”？太宗给出了超越时代的答案——“爱之如一”“夷狄亦人耳，其情与中夏不殊”。</p>
+                    <p>他既以军事平东突厥（630年李靖灭东突厥），又设羁縻府州、许其自治；对吐蕃则以和亲相待。</p>
+                    <p>正因威德并用、华夷一体，北方各族尊其为“天可汗”，建立了以唐为中心的东亚国际秩序。641年文成公主入藏，成为汉藏友好的千年佳话。</p>
+                </div>
+
+                <div class="image-container">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDYwMCIgd2lkdGg9IjEwMDAiIGhlaWdodD0iNjAwIj4KCiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InBhcGVyIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmM2U3Y2IiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1NSUiIHN0b3AtY29sb3I9IiNlY2RjYjYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZTJjZmEzIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJ2aWduIiBjeD0iNTAlIiBjeT0iNDIlIiByPSI3NSUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjYwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzViM2ExYSIgc3RvcC1vcGFjaXR5PSIwLjIyIi8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogICAgPGZpbHRlciBpZD0icm91Z2giPjxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIwLjkiIG51bU9jdGF2ZXM9IjIiIHJlc3VsdD0ibiIvPgogICAgICA8ZmVDb2xvck1hdHJpeCBpbj0ibiIgdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPgogICAgICA8ZmVDb21wb25lbnRUcmFuc2Zlcj48ZmVGdW5jQSB0eXBlPSJsaW5lYXIiIHNsb3BlPSIwLjA1Ii8+PC9mZUNvbXBvbmVudFRyYW5zZmVyPgogICAgICA8ZmVDb21wb3NpdGUgb3BlcmF0b3I9Im92ZXIiIGluMj0iU291cmNlR3JhcGhpYyIvPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgoKICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwMCIgaGVpZ2h0PSI2MDAiIGZpbGw9InVybCgjcGFwZXIpIi8+CiAgPHJlY3QgeD0iMTQiIHk9IjE0IiB3aWR0aD0iOTcyIiBoZWlnaHQ9IjU3MiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOGI1YTJiIiBzdHJva2Utd2lkdGg9IjMiIG9wYWNpdHk9IjAuNyIvPgogIDxyZWN0IHg9IjIyIiB5PSIyMiIgd2lkdGg9Ijk1NiIgaGVpZ2h0PSI1NTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzhiNWEyYiIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjUiLz4KICAKICA8cGF0aCBkPSJNMCAzMDAgTDE4MCAxNjAgTDMwMCAyODAgTDQzMCAxMzAgTDU2MCAyODAgTDcwMCAxNzAgTDg2MCAyOTAgTDEwMDAgMjAwIEwxMDAwIDM2MCBMMCAzNjAgWiIgZmlsbD0iIzdkNmE0YSIgb3BhY2l0eT0iMC41NSIvPgogIDxwYXRoIGQ9Ik0xMjAgMzAwIEwyNTAgMTgwIEwzNjAgMjkwIEw0NzAgMTkwIEw2MDAgMzAwIFoiIGZpbGw9IiNmMGVhZDgiIG9wYWNpdHk9IjAuODUiLz4KICA8cGF0aCBkPSJNNjQwIDMwMCBMNzYwIDIwMCBMODgwIDMwMCBaIiBmaWxsPSIjZjBlYWQ4IiBvcGFjaXR5PSIwLjg1Ii8+CiAgPHBhdGggZD0iTTAgMzYwIFEyNjAgMzIwIDUyMCAzNjAgVDEwMDAgMzYwIEwxMDAwIDYwMCBMMCA2MDAgWiIgZmlsbD0iIzhhNmEzYSIgb3BhY2l0eT0iMC40NSIvPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE1MCwxMjApIHNjYWxlKDAuOSkiIGZpbGw9IiNjZGIwODgiIG9wYWNpdHk9IjAuNTUiPjxwYXRoIGQ9Ik0wIDAgcTEwIC0yMiAzNCAtMTYgcTE0IC0yMCA0MCAtOCBxMjYgLTYgMzAgMTYgcTE4IDQgMTAgMjIgbC0xMTggMCBxLTEyIC0xNiA0IC0yMiB6Ii8+PC9nPiA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3ODAsMTEwKSBzY2FsZSgxLjApIiBmaWxsPSIjY2RiMDg4IiBvcGFjaXR5PSIwLjU1Ij48cGF0aCBkPSJNMCAwIHExMCAtMjIgMzQgLTE2IHExNCAtMjAgNDAgLTggcTI2IC02IDMwIDE2IHExOCA0IDEwIDIyIGwtMTE4IDAgcS0xMiAtMTYgNCAtMjIgeiIvPjwvZz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0NzAsNDMwKSI+CiAgICA8cGF0aCBkPSJNLTcwIDQwIFEtNzAgLTQwIDAgLTYwIFE3MCAtNDAgNzAgNDAgWiIgZmlsbD0iIzdhM2IyYSIvPgogICAgPGVsbGlwc2UgY3g9IjAiIGN5PSItNjYiIHJ4PSI1NCIgcnk9IjQwIiBmaWxsPSIjOWUyYjI1Ii8+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTcyIiByPSIyMCIgZmlsbD0iI2U5Y2ZhNiIvPgogICAgPHBhdGggZD0iTS0yMCAtNzYgUTAgLTk0IDIwIC03NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM2MyYTE0IiBzdHJva2Utd2lkdGg9IjIuNSIvPgogICAgPHBhdGggZD0iTS05MCA0MCBMLTEyMCAxMzAgTTkwIDQwIEwxMjAgMTMwIiBzdHJva2U9IiM2YjQ0MjMiIHN0cm9rZS13aWR0aD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPHBhdGggZD0iTS03MCAxMzAgUTAgMTUwIDcwIDEzMCBMNzAgMTUwIEwtNzAgMTUwIFoiIGZpbGw9IiM1YjNhMWEiLz4KICA8L2c+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjIwLDQ0MCkiPgogICAgPGVsbGlwc2UgY3g9IjAiIGN5PSIyMCIgcng9IjYwIiByeT0iMjYiIGZpbGw9IiMzYzJhMTQiIG9wYWNpdHk9IjAuMyIvPgogICAgPHBhdGggZD0iTS01MCAyMCBRLTUwIC02MCAwIC03OCBRNTAgLTYwIDUwIDIwIFoiIGZpbGw9IiNjOWIyN2EiLz4KICAgIDxjaXJjbGUgY3g9IjAiIGN5PSItODYiIHI9IjE4IiBmaWxsPSIjZTljZmE2Ii8+CiAgICA8cGF0aCBkPSJNLTQ0IDEwIFEwIC0xMCA0NCAxMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNmI0NDIzIiBzdHJva2Utd2lkdGg9IjQiLz4KICAgIDxsaW5lIHgxPSItNTAiIHkxPSIyMCIgeDI9Ii01MCIgeTI9IjEyMCIgc3Ryb2tlPSIjM2MyYTE0IiBzdHJva2Utd2lkdGg9IjgiLz4KICAgIDxsaW5lIHgxPSI1MCIgeTE9IjIwIiB4Mj0iNTAiIHkyPSIxMjAiIHN0cm9rZT0iIzNjMmExNCIgc3Ryb2tlLXdpZHRoPSI4Ii8+CiAgPC9nPgogIDxyZWN0IHg9IjM2MCIgeT0iNTQwIiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjM0IiByeD0iNiIgZmlsbD0iIzllMmIyNSIgb3BhY2l0eT0iMC44Ii8+CiAgPHRleHQgeD0iNTAwIiB5PSI1NjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTVEthaXRpLEthaVRpLFNpbVN1bixzZXJpZiIgZm9udC1zaXplPSIyMCIgZmlsbD0iI2YzZTdjYiIgbGV0dGVyLXNwYWNpbmc9IjMiPuaWh+aIkOWFpeiXjyDCtyDlpKnlj6/msZc8L3RleHQ+CgogIDx0ZXh0IHg9IjUwMCIgeT0iNTU2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU1RLYWl0aSxLYWlUaSxTaW1TdW4sc2VyaWYiIGZvbnQtc2l6ZT0iMjIiIGZpbGw9IiM3YTRhMWMiIG9wYWNpdHk9IjAuODUiPuWSjOS6suaAgOaflCDCtyDllJDolYPkuIDlrrY8L3RleHQ+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTA4LDg0KSI+CiAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNjIiIGhlaWdodD0iNjIiIHJ4PSI2IiBmaWxsPSIjOWUyYjI1IiBvcGFjaXR5PSIwLjkiLz4KICAgIDx0ZXh0IHg9IjMxIiB5PSIyNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IlNUS2FpdGksS2FpVGksU2ltU3VuLHNlcmlmIiBmb250LXNpemU9IjI2IiBmaWxsPSIjZjNlN2NiIj7otJ48L3RleHQ+CiAgICA8dGV4dCB4PSIzMSIgeT0iNTQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTVEthaXRpLEthaVRpLFNpbVN1bixzZXJpZiIgZm9udC1zaXplPSIyNiIgZmlsbD0iI2YzZTdjYiI+6KeCPC90ZXh0PgogIDwvZz4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwMCIgaGVpZ2h0PSI2MDAiIGZpbGw9InVybCgjdmlnbikiIHBvaW50ZXItZXZlbnRzPSJub25lIi8+CiAgPHRleHQgeD0iNTAwIiB5PSI3NCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IlNUS2FpdGksS2FpVGksU2ltU3VuLHNlcmlmIiBmb250LXNpemU9IjM0IiBmaWxsPSIjNWIzYTFhIiBsZXR0ZXItc3BhY2luZz0iNCI+5byA5piO5rCR5peP5pS/562WIMK3IOWNjuWkt+S4gOS9kzwvdGV4dD4KPC9zdmc+" alt="文成公主入藏和亲使团（意象图）">
+                    <p>文成公主入藏和亲使团（意象图）</p>
+                </div>
+
+                <div class="interactive-question">
+                    <h4>互动思考题</h4>
+                    <div class="question-text">
+                        李世民为什么能被尊为“天可汗”？他的民族政策有什么特点？
+                    </div>
+                    <button class="hint-button" onclick="showHint('hint3-1')">提示1</button>
+                    <button class="hint-button" onclick="showHint('hint3-2')">提示2</button>
+                    <button class="answer-button" onclick="showAnswer('answer3')">显示答案/解析</button>
+                    <div class="hint" id="hint3-1">
+                        <p>提示1：李世民处理与周边民族关系时，除了用兵还采用了什么方式？</p>
+                    </div>
+                    <div class="hint" id="hint3-2">
+                        <p>提示2：“天可汗”与一般的“皇帝”称号有何不同？</p>
+                    </div>
+                    <div class="answer" id="answer3">
+                        <p>答案/解析：李世民被尊为“天可汗”，是因为他实行开明包容的民族政策：威德并用、华夷一体，既平边患又设羁縻府州、行和亲，建立松散而稳固的秩序。“天可汗”是各族共同的“天下共主”之称，体现唐的开放气度与中华文明包容性。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="knowledge-point">
+                <h3>知识点4：虚心纳谏的君臣关系</h3>
+                <div class="story-content">
+                    <p>再好的制度也要靠人执行。贞观朝最动人的，是皇帝愿意被“顶撞”。</p>
+                    <p>魏征原是太子李建成的谋士，政变后太宗不计前嫌予以重用，魏征前后进谏“数十余万言”。</p>
+                    <p>太宗以“兼听则明，偏信则暗”自励，广开言路、集思广益，形成“君臣共治”的清明政风。晚年他渐生骄矜、连年征高句丽，自撰《帝范》坦承得失，留下辩证的一笔。</p>
+                </div>
+
+                <div class="image-container">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDYwMCIgd2lkdGg9IjEwMDAiIGhlaWdodD0iNjAwIj4KCiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InBhcGVyIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmM2U3Y2IiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1NSUiIHN0b3AtY29sb3I9IiNlY2RjYjYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZTJjZmEzIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJ2aWduIiBjeD0iNTAlIiBjeT0iNDIlIiByPSI3NSUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjYwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzViM2ExYSIgc3RvcC1vcGFjaXR5PSIwLjIyIi8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogICAgPGZpbHRlciBpZD0icm91Z2giPjxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIwLjkiIG51bU9jdGF2ZXM9IjIiIHJlc3VsdD0ibiIvPgogICAgICA8ZmVDb2xvck1hdHJpeCBpbj0ibiIgdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPgogICAgICA8ZmVDb21wb25lbnRUcmFuc2Zlcj48ZmVGdW5jQSB0eXBlPSJsaW5lYXIiIHNsb3BlPSIwLjA1Ii8+PC9mZUNvbXBvbmVudFRyYW5zZmVyPgogICAgICA8ZmVDb21wb3NpdGUgb3BlcmF0b3I9Im92ZXIiIGluMj0iU291cmNlR3JhcGhpYyIvPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgoKICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwMCIgaGVpZ2h0PSI2MDAiIGZpbGw9InVybCgjcGFwZXIpIi8+CiAgPHJlY3QgeD0iMTQiIHk9IjE0IiB3aWR0aD0iOTcyIiBoZWlnaHQ9IjU3MiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOGI1YTJiIiBzdHJva2Utd2lkdGg9IjMiIG9wYWNpdHk9IjAuNyIvPgogIDxyZWN0IHg9IjIyIiB5PSIyMiIgd2lkdGg9Ijk1NiIgaGVpZ2h0PSI1NTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzhiNWEyYiIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjUiLz4KICAKICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDAsMTUwKSBzY2FsZSgwLjkpIiBmaWxsPSIjY2RiMDg4IiBvcGFjaXR5PSIwLjU1Ij48cGF0aCBkPSJNMCAwIHExMCAtMjIgMzQgLTE2IHExNCAtMjAgNDAgLTggcTI2IC02IDMwIDE2IHExOCA0IDEwIDIyIGwtMTE4IDAgcS0xMiAtMTYgNCAtMjIgeiIvPjwvZz4gPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzkwLDEzMCkgc2NhbGUoMS4wKSIgZmlsbD0iI2NkYjA4OCIgb3BhY2l0eT0iMC41NSI+PHBhdGggZD0iTTAgMCBxMTAgLTIyIDM0IC0xNiBxMTQgLTIwIDQwIC04IHEyNiAtNiAzMCAxNiBxMTggNCAxMCAyMiBsLTExOCAwIHEtMTIgLTE2IDQgLTIyIHoiLz48L2c+CiAgPHJlY3QgeD0iMTIwIiB5PSIxNjAiIHdpZHRoPSI3NjAiIGhlaWdodD0iMzAwIiByeD0iMTAiIGZpbGw9IiM0YTM0MTUiIG9wYWNpdHk9IjAuMTYiLz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMzAsMzYwKSI+CiAgICA8cGF0aCBkPSJNLTYwIDYwIFEtNjAgLTUwIDAgLTcwIFE2MCAtNTAgNjAgNjAgWiIgZmlsbD0iIzViM2ExYSIvPgogICAgPHJlY3QgeD0iLTgyIiB5PSItMjYiIHdpZHRoPSIxNjQiIGhlaWdodD0iMjIiIHJ4PSI0IiBmaWxsPSIjOWUyYjI1Ii8+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTkyIiByPSIyNiIgZmlsbD0iI2U5Y2ZhNiIvPgogICAgPHBhdGggZD0iTS0yNiAtOTggUTAgLTEyMCAyNiAtOTggUTE4IC04MCAwIC04MCBRLTE4IC04MCAtMjYgLTk4IFoiIGZpbGw9IiMzYzJhMTQiLz4KICAgIDxwYXRoIGQ9Ik0tMjQgLTc4IFEwIC03MCAyNCAtNzgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzdhM2IyYSIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY2MCwzODApIj4KICAgIDxwYXRoIGQ9Ik0tNDQgNDAgUS00OCAtNTYgMCAtNzIgUTQ4IC01NiA0NCA0MCBaIiBmaWxsPSIjNGEzNDE1Ii8+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTg0IiByPSIyMiIgZmlsbD0iI2U5Y2ZhNiIvPgogICAgPHBhdGggZD0iTS0yMiAtOTAgUTAgLTExMCAyMiAtOTAgUTE1IC03NCAwIC03NCBRLTE1IC03NCAtMjIgLTkwIFoiIGZpbGw9IiMzYzJhMTQiLz4KICAgIDxwYXRoIGQ9Ik0tMzAgLTU0IEwtNjQgLTI4IE0zMCAtNTQgTDY0IC0yOCIgc3Ryb2tlPSIjNGEzNDE1IiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPHBhdGggZD0iTS00MCA0MCBRMCA1NiA0MCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNmI0NDIzIiBzdHJva2Utd2lkdGg9IjQiLz4KICA8L2c+CiAgPGcgc3Ryb2tlPSIjNmI0NDIzIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuOCI+CiAgICA8cGF0aCBkPSJNMzkyIDMyMCBRNDcwIDI3MCA1NDAgMzAwIi8+CiAgICA8cGF0aCBkPSJNNTk4IDMyMCBRNTIwIDI3MCA0NjAgMzAwIi8+CiAgPC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUwMCwyNTApIiBmaWxsPSIjZTljZmE2IiBzdHJva2U9IiM2YjQ0MjMiPgogICAgPHJlY3QgeD0iLTQwIiB5PSItMjIiIHdpZHRoPSI4MCIgaGVpZ2h0PSIyMCIgcng9IjMiLz4KICAgIDxsaW5lIHgxPSIwIiB5MT0iLTEyIiB4Mj0iMCIgeTI9IjE2IiBzdHJva2Utd2lkdGg9IjIiLz4KICA8L2c+CiAgPHJlY3QgeD0iMzYwIiB5PSI1NDAiIHdpZHRoPSIyODAiIGhlaWdodD0iMzQiIHJ4PSI2IiBmaWxsPSIjOWUyYjI1IiBvcGFjaXR5PSIwLjgiLz4KICA8dGV4dCB4PSI1MDAiIHk9IjU2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IlNUS2FpdGksS2FpVGksU2ltU3VuLHNlcmlmIiBmb250LXNpemU9IjIwIiBmaWxsPSIjZjNlN2NiIiBsZXR0ZXItc3BhY2luZz0iMyI+5YW85ZCs5YiZ5piOIMK3IOS7peS6uuS4uumVnDwvdGV4dD4KCiAgPHRleHQgeD0iNTAwIiB5PSI1NTYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTVEthaXRpLEthaVRpLFNpbVN1bixzZXJpZiIgZm9udC1zaXplPSIyMiIgZmlsbD0iIzdhNGExYyIgb3BhY2l0eT0iMC44NSI+6a2P5b6B55u06LCPIMK3IOaIv+iwi+adnOaWrTwvdGV4dD4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5MDgsODQpIj4KICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2MiIgaGVpZ2h0PSI2MiIgcng9IjYiIGZpbGw9IiM5ZTJiMjUiIG9wYWNpdHk9IjAuOSIvPgogICAgPHRleHQgeD0iMzEiIHk9IjI3IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU1RLYWl0aSxLYWlUaSxTaW1TdW4sc2VyaWYiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmM2U3Y2IiPui0njwvdGV4dD4KICAgIDx0ZXh0IHg9IjMxIiB5PSI1NCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IlNUS2FpdGksS2FpVGksU2ltU3VuLHNlcmlmIiBmb250LXNpemU9IjI2IiBmaWxsPSIjZjNlN2NiIj7op4I8L3RleHQ+CiAgPC9nPgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0idXJsKCN2aWduKSIgcG9pbnRlci1ldmVudHM9Im5vbmUiLz4KICA8dGV4dCB4PSI1MDAiIHk9Ijc0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU1RLYWl0aSxLYWlUaSxTaW1TdW4sc2VyaWYiIGZvbnQtc2l6ZT0iMzQiIGZpbGw9IiM1YjNhMWEiIGxldHRlci1zcGFjaW5nPSI0Ij7omZrlv4PnurPosI8gwrcg5ZCb6Iej5YWx5rK7PC90ZXh0Pgo8L3N2Zz4=" alt="朝堂上魏征直谏、太宗倾听（意象图）">
+                    <p>朝堂上魏征直谏、太宗倾听（意象图）</p>
+                </div>
+
+                <div class="interactive-question">
+                    <h4>互动思考题</h4>
+                    <div class="question-text">
+                        皇帝权力最大，为什么贞观朝反而鼓励大臣“挑毛病”？这带来什么效果？
+                    </div>
+                    <button class="hint-button" onclick="showHint('hint4-1')">提示1</button>
+                    <button class="hint-button" onclick="showHint('hint4-2')">提示2</button>
+                    <button class="answer-button" onclick="showAnswer('answer4')">显示答案/解析</button>
+                    <div class="hint" id="hint4-1">
+                        <p>提示1：太宗说“兼听则明，偏信则暗”，这说明了什么统治智慧？</p>
+                    </div>
+                    <div class="hint" id="hint4-2">
+                        <p>提示2：魏征前后进谏多少事？这种风气对决策有何影响？</p>
+                    </div>
+                    <div class="answer" id="answer4">
+                        <p>答案/解析：鼓励纳谏，是因为太宗深知“独断易骄、集思广益”。魏征等直谏使决策减少失误、广开言路，塑造了“君臣共治”的清明政风。这背后是对监督与反省价值的朴素认知，也是贞观政治清明的灵魂所在。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 趣味补充 -->
+        <div class="section">
+            <h2>四、趣味补充：贞观之治的小知识</h2>
+
+            <div class="fun-fact">
+                <h4>📜 太宗的“飞白书”与王羲之情结</h4>
+                <p>唐太宗不仅是政治家，也是书法家，尤爱王羲之。他曾为《晋书·王羲之传》亲撰赞语，并搜罗天下王字真迹，推动帖学兴盛。</p>
+            </div>
+
+            <div class="fun-fact">
+                <h4>🛕 玄奘西行就在贞观年间</h4>
+                <p>贞观三年（629）玄奘私发长安，历十七年取经归国，太宗亲予接见并支持译经，成为中外文化交流的典范。</p>
+            </div>
+
+            <div class="fun-fact">
+                <h4>🏯 凌烟阁二十四功臣</h4>
+                <p>贞观十七年，太宗命绘长孙无忌、魏征等二十四位功臣像于凌烟阁，以示旌表，阎立本为之图绘。</p>
+            </div>
+
+            <div class="fun-fact">
+                <h4>🌍 长安的国际范儿</h4>
+                <p>贞观年间长安已是国际都会，西域商胡、日本遣唐使、波斯僧侣云集，胡乐胡舞盛行，开放气象初显。</p>
+            </div>
+
+            <div class="fun-fact">
+                <h4>📚 《贞观政要》——帝王教科书</h4>
+                <p>唐代史官吴兢辑录太宗与群臣问答成《贞观政要》，被历代帝王奉为治国教材，日本、朝鲜亦广刊行。</p>
+            </div>
+        </div>
+
+
+        <!-- 课外兴趣资料 -->
+        <div class="section">
+            <h2>五、课外兴趣资料</h2>
+
+            <div class="extra-resources">
+                <h4>📖 推荐阅读</h4>
+                <ul>
+                    <li>《贞观政要》：唐·吴兢撰，记录太宗与大臣对话与治国理念。</li>
+                    <li>《资治通鉴·唐纪》：宋·司马光主编，详载贞观事迹。</li>
+                    <li>《唐太宗传》：现代学者所撰传记，全面介绍其生平与思想。</li>
+                </ul>
+            </div>
+
+            <div class="extra-resources">
+                <h4>🎬 影视推荐</h4>
+                <ul>
+                    <li>《贞观之治》（2006）：历史剧，较真实再现贞观场景。</li>
+                    <li>《大明宫词》（2000）：以唐宫廷视角展现盛唐气象。</li>
+                    <li>《玄奘之路》：纪录片，反映贞观年间的中外交流。</li>
+                </ul>
+            </div>
+
+            <div class="extra-resources">
+                <h4>🏯 实地探访</h4>
+                <ul>
+                    <li>西安昭陵：太宗陵墓，陪葬墓众多，规模宏大。</li>
+                    <li>西安大雁塔：玄奘为藏经所建，唐代建筑代表。</li>
+                    <li>拉萨大昭寺·唐蕃会盟碑：汉藏友好的历史见证。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 互动区 -->
+        <div class="section">
+            <h2>六、互动：幸运点名转盘</h2>
+            <div class="lucky-wheel">
+                <div class="wheel-container">
+                    <div class="wheel" id="wheel"></div>
+                    <div class="wheel-pointer"></div>
+                </div>
+                <button class="wheel-btn" onclick="spinWheel()">开始抽奖</button>
+                <button class="wheel-btn" onclick="spinWheel()">再抽一次</button>
+                <div class="student-name" id="student-name"></div>
+                <button class="wheel-btn" onclick="assignQuestion()">为TA出题</button>
+            </div>
+        </div>
+
+        <!-- 总结区 -->
+        <div class="section">
+            <h2>七、总结：贞观之治的历史意义</h2>
+            <div class="story-content">
+                <p>贞观之治是中国古代最负盛名的治世之一。唐太宗李世民以隋亡为鉴，确立“以民为本”的治国理念；完善三省六部与科举，以制度维系高效廉洁;推行开明民族政策，成就“天可汗”的东亚秩序；虚心纳谏、兼听集思，塑造清明政风。他凭“克制、创新与胸襟”，把政变的起点淬炼成盛世典范，为后来的开元盛世奠定基础，也留下“以人民为中心、广开言路”的持久启示。</p>
+            </div>
+
+            <div class="interactive-question">
+                <h4>开放题</h4>
+                <div class="question-text">
+                    请用自己的话解释本节课的核心命题
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 学生名单
+        const students = ["张宇轩", "李思涵", "王浩然", "陈雨桐", "刘子墨", "赵一诺", "周嘉诚", "孙婉清", "黄梓涵", "林俊熙", "徐可欣", "郭晨阳", "马语彤", "何沐辰", "高欣怡", "唐子睿", "宋依然", "郑博文", "韩若曦", "蔡承泽"];
+
+        // 进度跟踪
+        let progress = 0;
+
+        // 显示提示
+        function showHint(hintId) {
+            const hint = document.getElementById(hintId);
+            hint.style.display = 'block';
+        }
+
+        // 显示答案
+        function showAnswer(answerId) {
+            const answer = document.getElementById(answerId);
+            answer.style.display = 'block';
+            updateProgress(25); // 每次完成一个问题，进度增加25%
+        }
+
+        // 更新进度
+        function updateProgress(amount) {
+            progress += amount;
+            if (progress > 100) progress = 100;
+            const progressFill = document.getElementById('progress-fill');
+            const progressText = document.getElementById('progress-text');
+            progressFill.style.width = progress + '%';
+            progressText.textContent = '进度：' + progress + '%';
+
+            // 显示成就
+            if (progress >= 50) {
+                document.getElementById('achievement').style.display = 'block';
+            }
+        }
+
+        // 幸运点名转盘
+        function spinWheel() {
+            const wheel = document.getElementById('wheel');
+            const studentName = document.getElementById('student-name');
+            const randomIndex = Math.floor(Math.random() * students.length);
+            const selectedStudent = students[randomIndex];
+
+            // 旋转转盘
+            const rotation = 3600 + randomIndex * (360 / students.length);
+            wheel.style.transform = 'rotate(' + rotation + 'deg)';
+
+            // 显示结果
+            setTimeout(() => {
+                studentName.textContent = '恭喜：' + selectedStudent;
+            }, 5000);
+        }
+
+        // 为学生出题
+        function assignQuestion() {
+            const studentName = document.getElementById('student-name').textContent;
+            if (studentName) {
+                alert(studentName + '，请回答以下问题：贞观之治的主要特点是什么？');
+            } else {
+                alert('请先抽奖，选择一名学生！');
+            }
+        }
+
+        // 音效开关
+        let soundEnabled = false;
+        const soundBtn = document.getElementById('sound-btn');
+
+        soundBtn.addEventListener('click', () => {
+            soundEnabled = !soundEnabled;
+            soundBtn.textContent = soundEnabled ? '音效：开启' : '音效：关闭';
+        });
+    </script>
+</body>
+</html>
